@@ -38,7 +38,7 @@ class EnglishNumberToWord {
             " nineteen"
     };
 
-    static String convert(int number) {
+    public static String convert (int number) {
         String soFar = "";
 
         if (number % 100 < 20)
@@ -46,10 +46,8 @@ class EnglishNumberToWord {
         else {
             if (number % 10 != 0)
                 soFar = numNames[number % 10];
-
-            number /= 10;
-
-            soFar = tensNames[number % 10] + soFar;
+            
+            soFar = tensNames[(int)(number / 10) % 10] + soFar;
         }
 
         return soFar;
