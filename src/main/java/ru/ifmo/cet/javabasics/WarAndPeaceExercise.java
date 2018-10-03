@@ -1,8 +1,6 @@
 package ru.ifmo.cet.javabasics;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.*;
@@ -39,7 +37,7 @@ public class WarAndPeaceExercise {
     }
 
     private static void gainWords(Path tome, Map<String, Integer> wordsAndAmounts) {
-        try (BufferedReader br = new BufferedReader(new FileReader(tome.toFile()))) {
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(tome.toString()), "windows-1251"))) {
             String line;
 
             while ((line = br.readLine()) != null)
